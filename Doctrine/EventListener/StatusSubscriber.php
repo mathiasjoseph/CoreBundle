@@ -54,7 +54,6 @@ class StatusSubscriber implements EventSubscriber
         if(empty($annotation->statusProperties)) {
             return;
         }
-        $name = $annotation->name;
         $properties = explode(", ", $annotation->statusProperties);
         foreach ($properties as $property){
             if (property_exists(StatusTrait::class, $property)){

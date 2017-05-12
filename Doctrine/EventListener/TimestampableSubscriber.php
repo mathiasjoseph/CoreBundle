@@ -53,7 +53,6 @@ class TimestampableSubscriber implements EventSubscriber
         if(empty($annotation->timeProperties)) {
             return;
         }
-        $name = $annotation->name;
         $properties = explode(", ", $annotation->timeProperties);
 
         foreach ($properties as $i => $property){
