@@ -48,18 +48,19 @@ class StatusSubscriber implements EventSubscriber
         $reader = new AnnotationReader();
 
         $annotation = $reader->getClassAnnotation($reflectionClass, CommonModelAnnotation::class);
-        if(!$annotation) {
-            return;
-        }
-        if(empty($annotation->statusProperties)) {
-            return;
-        }
-        $properties = explode(", ", $annotation->statusProperties);
-        foreach ($properties as $property){
-            if (property_exists(StatusTrait::class, $property)){
-                $builder->addField($property, 'boolean');
+        if(!$annotation || empty($annotation->statusProperties)) {
+            $builder->addField("enabled", 'boolean');
+            $builder->addField("expired", 'boolean');
+        }else{
+            $properties = explode(", ", $annotation->statusProperties);
+            foreach ($properties as $property){
+                if (property_exists(StatusTrait::class, $property)){
+                    $builder->addField($property, 'boolean');
+                }
             }
         }
+
+
 
     }
 }
