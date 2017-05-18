@@ -31,7 +31,7 @@
       "Miky\\Bundle\\CoreBundle" : ""
     }
   },
-  "minimum-stability": "dev",
+
   "target-dir" : "Miky/Bundle/CoreBundle",
   "repositories" : [{
   }],
