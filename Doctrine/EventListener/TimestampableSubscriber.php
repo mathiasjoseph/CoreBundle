@@ -57,6 +57,7 @@ class TimestampableSubscriber implements EventSubscriber
 
         foreach ($properties as $i => $property){
             if (property_exists(TimestampableTrait::class, $property)){
+                if (!$metadata->hasField($property))
                 $builder->addField($property, 'datetime', array(
                     'nullable' => true
                 ));
