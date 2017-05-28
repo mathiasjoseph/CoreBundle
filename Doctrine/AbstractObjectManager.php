@@ -6,17 +6,18 @@
  * Time: 15:07
  */
 
-namespace Miky\Bundle\CoreBundle\Manager;
+namespace Miky\Bundle\CoreBundle\Doctrine;
 
 
 use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\ORM\EntityManager;
 
-class AbstractObjectManager
+class AbstractObjectManager implements ObjectManagerInterface
 {
     /**
-     * @var ObjectManager
+     * @var EntityManager
      */
-    protected $objectManager;
+    protected $entityManager;
 
     /**
      * @var string
@@ -30,14 +31,14 @@ class AbstractObjectManager
 
     /**
      * Constructor.
-     * @param ObjectManager $om
+     * @param EntityManager $om
      * @param string $class
      */
-    public function __construct(ObjectManager $om, $class)
+    public function __construct(EntityManager $em, $class)
     {
-        $this->objectManager = $om;
-        $this->repository = $om->getRepository($class);
-        $metadata = $om->getClassMetadata($class);
+        $this->entityManager = $em;
+        $this->repository = $em->getRepository($class);
+        $metadata = $em->getClassMetadata($class);
         $this->class = $metadata->getName();
     }
 
@@ -47,20 +48,22 @@ class AbstractObjectManager
     }
 
     /**
-     * @return ObjectManager
+     * @return EntityManager
      */
-    public function getObjectManager()
+    public function getEntityManager()
     {
-        return $this->objectManager;
+        return $this->entityManager;
     }
 
     /**
-     * @param ObjectManager $objectManager
+     * @param EntityManager $entityManager
      */
-    public function setObjectManager($objectManager)
+    public function setEntityManager($entityManager)
     {
-        $this->objectManager = $objectManager;
+        $this->entityManager = $entityManager;
     }
+
+
 
     /**
      * @return string

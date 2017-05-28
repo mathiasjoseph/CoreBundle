@@ -6,7 +6,7 @@
  * Time: 10:01
  */
 
-namespace Miky\Bundle\CoreBundle\Manager;
+namespace Miky\Bundle\CoreBundle\Doctrine;
 
 
 interface ObjectManagerInterface

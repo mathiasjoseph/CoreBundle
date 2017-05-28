@@ -47,20 +47,18 @@ class TimestampableSubscriber implements EventSubscriber
         $reader = new AnnotationReader();
 
         $annotation = $reader->getClassAnnotation($reflectionClass, CommonModelAnnotation::class);
-        if(!$annotation) {
-            return;
-        }
-        if(empty($annotation->timeProperties)) {
-            return;
-        }
-        $properties = explode(", ", $annotation->timeProperties);
-
-        foreach ($properties as $i => $property){
-            if (property_exists(TimestampableTrait::class, $property)){
-                if (!$metadata->hasField($property))
-                $builder->addField($property, 'datetime', array(
-                    'nullable' => true
-                ));
+        if(!$annotation || empty($annotation->timeProperties)) {
+            if (!$metadata->hasField("createdAt"))
+                $builder->addField("createdAt", 'boolean');
+            if (!$metadata->hasField("updatedAt"))
+                $builder->addField("updatedAt", 'boolean');
+        }else{
+            $properties = explode(", ", $annotation->timeProperties);
+            foreach ($properties as $property){
+                if (property_exists(TimestampableTrait::class, $property)){
+                    if (!$metadata->hasField($property))
+                        $builder->addField($property, 'boolean');
+                }
             }
         }
         $builder->addLifecycleEvent("updateTimestampable", "preUpdate");
