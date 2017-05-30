@@ -49,15 +49,15 @@ class TimestampableSubscriber implements EventSubscriber
         $annotation = $reader->getClassAnnotation($reflectionClass, CommonModelAnnotation::class);
         if(!$annotation || empty($annotation->timeProperties)) {
             if (!$metadata->hasField("createdAt"))
-                $builder->addField("createdAt", 'boolean');
+                $builder->addField("createdAt", 'datetime');
             if (!$metadata->hasField("updatedAt"))
-                $builder->addField("updatedAt", 'boolean');
+                $builder->addField("updatedAt", 'datetime');
         }else{
             $properties = explode(", ", $annotation->timeProperties);
             foreach ($properties as $property){
                 if (property_exists(TimestampableTrait::class, $property)){
                     if (!$metadata->hasField($property))
-                        $builder->addField($property, 'boolean');
+                        $builder->addField($property, 'datetime');
                 }
             }
         }
