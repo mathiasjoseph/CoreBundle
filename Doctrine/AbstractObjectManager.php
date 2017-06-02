@@ -111,7 +111,7 @@ class AbstractObjectManager implements ObjectManagerInterface
         }
     }
 
-    protected function createEntity()
+    public function createEntity()
     {
         $class = $this->getClass();
         $entity = new $class;
