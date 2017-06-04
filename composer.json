@@ -23,7 +23,7 @@
     "symfony/polyfill-apcu": "^1.0",
     "symfony/swiftmailer-bundle": "^2.3.10",
     "symfony/symfony": "3.3.*",
-    "twig/twig": "^2.0",
+    "twig/twig": "^1.0||^2.0",
     "mikycorp/menubundle": "~1.0",
     "mikycorp/resourcebundle": "~1.0",
     "mikycorp/gridbundle": "~1.0",
