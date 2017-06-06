@@ -13,3 +13,7 @@ miky_core:
     no: Non
     all: Tous
     enabled: Activé
+    edit: Editer
+    delete: Supprimer
+    filter: Filtrer
+    clear_filters: Effacer les filtres
