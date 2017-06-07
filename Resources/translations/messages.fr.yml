@@ -6,14 +6,18 @@ miky_core:
     update: Modifier
     info: Info
     press_enter_to_search: Appuyez sur entrée pour rechercher
+    save_changes: Sauvegarder
     search: Rechercher
     name: Nom
     cancel: Annuler
     yes: Oui
     no: Non
     all: Tous
+    email: Email
     enabled: Activé
     edit: Editer
     delete: Supprimer
     filter: Filtrer
     clear_filters: Effacer les filtres
+    firstname: Prénom
+    lastname: Nom
