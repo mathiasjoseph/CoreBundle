@@ -21,3 +21,4 @@ miky_core:
     clear_filters: Effacer les filtres
     firstname: Prénom
     lastname: Nom
+    phone: Téléphone

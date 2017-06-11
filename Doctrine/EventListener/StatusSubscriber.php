@@ -9,14 +9,14 @@
 namespace Miky\Bundle\CoreBundle\Doctrine\EventListener;
 
 
-use Miky\Component\Core\Model\CommonModelInterface;
-use Miky\Component\Core\Model\StatusTrait;
 use Doctrine\Common\Annotations\AnnotationReader;
 use Doctrine\Common\EventSubscriber;
 use Doctrine\Common\Persistence\Event\LoadClassMetadataEventArgs;
 use Doctrine\ORM\Events;
 use Doctrine\ORM\Mapping\Builder\ClassMetadataBuilder;
 use Miky\Bundle\CoreBundle\Annotation\CommonModelAnnotation;
+use Miky\Component\Core\Model\CommonModelInterface;
+use Miky\Component\Core\Model\StatusTrait;
 
 
 class StatusSubscriber implements EventSubscriber

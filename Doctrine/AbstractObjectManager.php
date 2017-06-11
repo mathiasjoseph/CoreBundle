@@ -9,7 +9,6 @@
 namespace Miky\Bundle\CoreBundle\Doctrine;
 
 
-use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManager;
 
 class AbstractObjectManager implements ObjectManagerInterface

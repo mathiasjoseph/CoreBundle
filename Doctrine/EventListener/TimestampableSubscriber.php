@@ -9,16 +9,14 @@
 namespace Miky\Bundle\CoreBundle\Doctrine\EventListener;
 
 
-use Miky\Component\Core\Model\CommonModelInterface;
-use Miky\Component\Core\Model\TimestampableTrait;
 use Doctrine\Common\Annotations\AnnotationReader;
 use Doctrine\Common\EventSubscriber;
 use Doctrine\Common\Persistence\Event\LoadClassMetadataEventArgs;
 use Doctrine\ORM\Events;
 use Doctrine\ORM\Mapping\Builder\ClassMetadataBuilder;
 use Miky\Bundle\CoreBundle\Annotation\CommonModelAnnotation;
-use Miky\Component\Grid\Provider\UndefinedGridException;
-use Miky\Component\Resource\Repository\Exception\ExistingResourceException;
+use Miky\Component\Core\Model\CommonModelInterface;
+use Miky\Component\Core\Model\TimestampableTrait;
 
 class TimestampableSubscriber implements EventSubscriber
 {
