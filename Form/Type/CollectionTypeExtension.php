@@ -11,6 +11,8 @@ namespace Miky\Bundle\CoreBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\FormInterface;
+use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class CollectionTypeExtension extends AbstractTypeExtension
@@ -22,22 +24,14 @@ class CollectionTypeExtension extends AbstractTypeExtension
         $resolver->setDefined(array('reference_property'));
     }
 
-//    public function buildView(FormView $view, FormInterface $form, array $options)
-//    {
-//        if (isset($options['image_property'])) {
-//            // this will be whatever class/entity is bound to your form (e.g. Media)
-//            $parentData = $form->getParent()->getData();
-//
-//            $imageUrl = null;
-//            if (null !== $parentData) {
-//                $accessor = PropertyAccess::createPropertyAccessor();
-//                $imageUrl = $accessor->getValue($parentData, $options['image_property']);
-//            }
-//
-//            // set an "image_url" variable that will be available when rendering this field
-//            $view->vars['image_url'] = $imageUrl;
-//        }
-//    }
+    public function buildView(FormView $view, FormInterface $form, array $options)
+    {
+        if (isset($options['reference_property'])) {
+            $view->vars['reference_property'] = $options["reference_property"];
+        }else{
+            $view->vars['reference_property'] = null;
+        }
+    }
 
     /**
      * Returns the name of the type being extended.
