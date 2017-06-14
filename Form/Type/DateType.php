@@ -26,11 +26,17 @@ class DateType extends AbstractType
     protected $format;
 
     /**
+     * @var string
+     */
+    protected $htmlFormat;
+
+    /**
      * DateType constructor.
      */
     public function __construct()
     {
-        $this->format = 'yyyy-mm-dd';
+        $this->htmlFormat = 'yyyy-mm-dd';
+        $this->format = 'Y-m-d';
     }
 
 
@@ -52,7 +58,7 @@ class DateType extends AbstractType
      */
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
-        $view->vars['format'] = $this->format;
+        $view->vars['format'] = $this->htmlFormat;
     }
     /**
      * {@inheritdoc}

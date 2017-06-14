@@ -22,3 +22,7 @@ miky_core:
     firstname: Prénom
     lastname: Nom
     phone: Téléphone
+    notes: Notes
+    title: Titre
+    dateTo: Date de fin
+    dateFrom: Date de début

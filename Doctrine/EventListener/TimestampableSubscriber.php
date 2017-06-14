@@ -41,7 +41,7 @@ class TimestampableSubscriber implements EventSubscriber
         }
         $builder = new ClassMetadataBuilder($metadata);
 
-        $reflectionClass = $metadata->getReflectionClass();
+        $reflectionClass = new \ReflectionClass($metadata->getName());
         $reader = new AnnotationReader();
 
         $annotation = $reader->getClassAnnotation($reflectionClass, CommonModelAnnotation::class);

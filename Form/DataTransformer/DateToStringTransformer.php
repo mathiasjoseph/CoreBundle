@@ -77,7 +77,7 @@ class DateToStringTransformer extends BaseDateTimeTransformer
 
         $dateTime = $dateTime->setTimezone(new \DateTimeZone($this->outputTimezone));
 
-        return $dateTime->format("Y-m-d");
+        return $dateTime->format($this->generateFormat);
     }
 
     /**
@@ -101,7 +101,7 @@ class DateToStringTransformer extends BaseDateTimeTransformer
         }
 
         $outputTz = new \DateTimeZone($this->outputTimezone);
-        $dateTime = \DateTime::createFromFormat("Y-m-d", $value, $outputTz);
+        $dateTime = \DateTime::createFromFormat($this->generateFormat, $value, $outputTz);
 
         $lastErrors = \DateTime::getLastErrors();
         if (0 < $lastErrors['warning_count'] || 0 < $lastErrors['error_count']) {
