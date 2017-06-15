@@ -24,5 +24,6 @@ miky_core:
     phone: Téléphone
     notes: Notes
     title: Titre
+    description: Description
     dateTo: Date de fin
     dateFrom: Date de début

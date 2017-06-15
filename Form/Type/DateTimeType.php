@@ -20,18 +20,31 @@ class DateTimeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add("date", DateType::class)
-        ->add("time", TimeType::class);
+            ->add("time", TimeType::class);
         $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) {
             $data = $event->getData();
-            $date['date'] = $data;
-            $date['time'] = $data;
-            $event->setData($date);
+            if ($data != null) {
+                $date['date'] = $data;
+                $date['time'] = $data;
+                $event->setData($date);
+            }
         });
-            $builder->addEventListener(FormEvents::SUBMIT, function (FormEvent $event) {
-                $data = $event->getData();
-                $data = new \DateTime($data['date']->format('Y-m-d') .' ' .$data['time']->format('H:i:s'));
-                $event->setData($data);
-            });
+        $builder->addEventListener(FormEvents::SUBMIT, function (FormEvent $event) {
+            $data = $event->getData();
+
+            if ($data['date'] != null && $data['time'] != null) {
+                $data = new \DateTime($data['date']->format('Y-m-d') . ' ' . $data['time']->format('H:i:s'));
+            }elseif ($data['date'] != null){
+                $data = new \DateTime($data['date']->format('Y-m-d'));
+            }
+            elseif ($data['time'] != null){
+                $data = new \DateTime($data['time']->format('H:i:s'));
+            }
+            else{
+                $data = null;
+            }
+            $event->setData($data);
+        });
     }
 
 

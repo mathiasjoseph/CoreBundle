@@ -6,6 +6,9 @@
         <service id="Miky\Bundle\CoreBundle\Form\Type\CollectionTypeExtension">
             <tag name="form.type_extension" extended-type="Symfony\Component\Form\Extension\Core\Type\CollectionType" />
         </service>
+        <service id="Miky\Bundle\CoreBundle\Form\Type\FormTypeExtension">
+            <tag name="form.type_extension" extended-type="Symfony\Component\Form\Extension\Core\Type\FormType" />
+        </service>
     </services>
 
 </container>
