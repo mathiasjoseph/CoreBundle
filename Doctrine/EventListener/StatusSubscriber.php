@@ -11,7 +11,9 @@ namespace Miky\Bundle\CoreBundle\Doctrine\EventListener;
 
 use Doctrine\Common\Annotations\AnnotationReader;
 use Doctrine\Common\EventSubscriber;
+use Doctrine\Common\Persistence\Event\LifecycleEventArgs;
 use Doctrine\Common\Persistence\Event\LoadClassMetadataEventArgs;
+
 use Doctrine\ORM\Events;
 use Doctrine\ORM\Mapping\Builder\ClassMetadataBuilder;
 use Miky\Bundle\CoreBundle\Annotation\CommonModelAnnotation;
@@ -28,9 +30,21 @@ class StatusSubscriber implements EventSubscriber
     {
         return array(
             Events::loadClassMetadata,
+            Events::prePersist
         );
     }
 
+    public function prePersist(LifecycleEventArgs $args){
+        $entity = $args->getObject();
+
+        if ($entity instanceof CommonModelInterface) {
+            /** @var CommonModelInterface $entity */
+            if ($entity->getEnabled() == null){
+                $entity->setEnabled(true);
+            }
+        }
+
+    }
     /**
      * @param LoadClassMetadataEventArgs $eventArgs
      */
