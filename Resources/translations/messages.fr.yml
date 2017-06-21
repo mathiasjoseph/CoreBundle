@@ -27,3 +27,4 @@ miky_core:
     description: Description
     dateTo: Date de fin
     dateFrom: Date de début
+    view_details: Voir les details
