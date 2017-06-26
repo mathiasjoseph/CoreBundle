@@ -4,6 +4,7 @@ miky_core:
     remove: Supprimer
     delete: Supprimer
     update: Modifier
+    reference: Référence
     info: Info
     press_enter_to_search: Appuyez sur entrée pour rechercher
     save_changes: Sauvegarder
