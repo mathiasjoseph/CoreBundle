@@ -18,6 +18,7 @@ miky_core:
     enabled: Activé
     edit: Editer
     delete: Supprimer
+    content: Contenu
     filter: Filtrer
     clear_filters: Effacer les filtres
     firstname: Prénom
