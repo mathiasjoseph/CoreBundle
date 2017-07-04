@@ -21,7 +21,7 @@ class FormTypeExtension extends AbstractTypeExtension
     public function configureOptions(OptionsResolver $resolver)
     {
         // makes it legal for FileType fields to have an image_property option
-        $resolver->setDefined(array('casper_group', 'casper_hide', 'casper_show', 'casper_name', 'row_attr'));
+        $resolver->setDefined(array('casper_group', 'casper_hide', 'casper_show', 'casper_name', 'row_attr', 'tab_collection', "tab"));
         $resolver->setDefaults(array("row_attr" => array()));
         $resolver->setAllowedTypes('casper_group', 'string')
             ->setAllowedTypes('casper_show', 'array')
@@ -32,6 +32,9 @@ class FormTypeExtension extends AbstractTypeExtension
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
         $view->vars['row_attr'] = $options['row_attr'];
+        if (isset($options['casper_group'])) {
+            $view->vars['row_attr']['data-casper-group'] = $options['casper_group'];
+        }
         if (isset($options['casper_group'])) {
             $view->vars['row_attr']['data-casper-group'] = $options['casper_group'];
         }
