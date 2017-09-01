@@ -11,5 +11,5 @@ namespace Miky\Bundle\CoreBundle\Form\Factory;
 
 interface FactoryInterface
 {
-
+    public function createForm(array $options = array());
 }
