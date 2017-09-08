@@ -29,6 +29,7 @@
     "mikycorp/menubundle": "~1.0",
     "mikycorp/resourcebundle": "~1.0",
     "mikycorp/gridbundle": "~1.0",
+    "sonata-project/doctrine-extensions": "^1.0",
     "mikycorp/settingsbundle": "~1.0",
     "mikycorp/installerbundle": "~1.0"
   },
