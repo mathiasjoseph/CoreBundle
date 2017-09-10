@@ -8,6 +8,7 @@ miky_core:
     info: Info
     press_enter_to_search: Appuyez sur entrée pour rechercher
     save_changes: Sauvegarder
+    actions: Actions
     change: Modifier
     search: Rechercher
     name: Nom
