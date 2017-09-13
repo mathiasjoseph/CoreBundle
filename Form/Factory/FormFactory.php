@@ -45,10 +45,10 @@ class FormFactory implements FactoryInterface
     /**
      * {@inheritdoc}
      */
-    public function createForm(array $options = array())
+    public function createForm($data = null, array $options = array())
     {
         $options = array_merge(array('validation_groups' => $this->validationGroups), $options);
 
-        return $this->formFactory->create($this->type, null, $options);
+        return $this->formFactory->create($this->type, $data, $options);
     }
 }
