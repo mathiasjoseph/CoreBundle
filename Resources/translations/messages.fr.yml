@@ -1,6 +1,7 @@
 miky_core:
     no_results_to_display: Aucun résultat à afficher
     create: Créer
+    display: Afficher
     remove: Supprimer
     delete: Supprimer
     update: Modifier
@@ -11,6 +12,8 @@ miky_core:
     actions: Actions
     change: Modifier
     search: Rechercher
+    last_update: Dernière mise à jour
+    creation_date: Date de création
     name: Nom
     cancel: Annuler
     yes: Oui
@@ -33,3 +36,4 @@ miky_core:
     dateFrom: Date de début
     view_details: Voir les details
     home: Accueil
+    views: Vues
