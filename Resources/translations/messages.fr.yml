@@ -32,6 +32,8 @@ miky_core:
     notes: Notes
     title: Titre
     description: Description
+    slug: Slug
+    icon: Icon
     dateTo: Date de fin
     dateFrom: Date de début
     view_details: Voir les details
