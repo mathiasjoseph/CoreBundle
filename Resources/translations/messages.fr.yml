@@ -3,6 +3,8 @@ miky_core:
     create: Créer
     display: Afficher
     remove: Supprimer
+    submit: Envoyer
+    reset: Réinitialiser
     delete: Supprimer
     update: Modifier
     reference: Référence
