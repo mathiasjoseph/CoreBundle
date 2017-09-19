@@ -39,3 +39,6 @@ miky_core:
     view_details: Voir les details
     home: Accueil
     views: Vues
+    duration: Durée
+    desc: Ordre décroissant
+    asc: Ordre croissant
