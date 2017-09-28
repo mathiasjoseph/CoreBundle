@@ -16,5 +16,12 @@
     <imports>
         <import resource="services/listener.xml"/>
         <import resource="services/form.xml"/>
+        <import resource="services/twig.xml"/>
     </imports>
+    <services>
+        <service id="miky.registry.shortcode" class="%miky.registry.settings_schema.class%" lazy="true">
+            <argument>Miky\Bundle\CoreBundle\Shortcode\ShortcodeInterface</argument>
+            <argument>Shortcode</argument>
+        </service>
+    </services>
 </container>
