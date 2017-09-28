@@ -110,6 +110,10 @@ class BaseEntityManager implements EntityManagerInterface
         }
     }
 
+    public function flush()
+    {
+        $this->entityManager->flush();
+    }
 
     public function createEntity()
     {
