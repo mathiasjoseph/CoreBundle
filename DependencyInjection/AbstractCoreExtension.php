@@ -27,7 +27,7 @@ abstract class AbstractCoreExtension extends Extension
     }
 
     protected function addBundleRequired($bundle, ContainerBuilder $container){
-        $bundles = $container->getParameter('bundles');
+        $bundles = $container->getParameter('kernel.bundles');
         if (!isset($bundles[$bundle])) {
             throw new \InvalidArgumentException(
                 'The bundle ... needs to be registered in order to use '. $bundle .' .'
@@ -36,7 +36,7 @@ abstract class AbstractCoreExtension extends Extension
     }
 
     protected function isBundleExist($bundle, ContainerBuilder $container){
-        $bundles = $container->getParameter('bundles');
+        $bundles = $container->getParameter('kernel.bundles');
         if (!isset($bundles[$bundle])) {
             return false;
         }
