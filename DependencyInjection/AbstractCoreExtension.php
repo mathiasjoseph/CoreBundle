@@ -26,6 +26,24 @@ abstract class AbstractCoreExtension extends Extension
         }
     }
 
+    protected function addBundleRequired($bundle, ContainerBuilder $container){
+        $bundles = $container->getParameter('bundles');
+        if (!isset($bundles[$bundle])) {
+            throw new \InvalidArgumentException(
+                'The bundle ... needs to be registered in order to use '. $bundle .' .'
+            );
+        }
+    }
+
+    protected function isBundleExist($bundle, ContainerBuilder $container){
+        $bundles = $container->getParameter('bundles');
+        if (!isset($bundles[$bundle])) {
+            return false;
+        }
+        return true;
+    }
+
+
     /**
      * @param array            $config
      * @param ContainerBuilder $container
