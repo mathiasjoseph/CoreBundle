@@ -13,9 +13,9 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 abstract class AbstractCoreExtension extends Extension
 {
     /**
-     * @param array            $config
+     * @param array $config
      * @param ContainerBuilder $container
-     * @param array            $map
+     * @param array $map
      */
     protected function remapParameters(array $config, ContainerBuilder $container, array $map)
     {
@@ -26,16 +26,20 @@ abstract class AbstractCoreExtension extends Extension
         }
     }
 
-    protected function addBundleRequired($bundle, ContainerBuilder $container){
+    protected function setBundlesRequired(array $bundlesRequired, ContainerBuilder $container)
+    {
         $bundles = $container->getParameter('kernel.bundles');
-        if (!isset($bundles[$bundle])) {
-            throw new \InvalidArgumentException(
-                'The bundle ... needs to be registered in order to use '. $bundle .' .'
-            );
+        foreach ($bundlesRequired as $key => $value) {
+            if (!isset($bundles[$value])) {
+                throw new \InvalidArgumentException(
+                    'The bundle ... needs to be registered in order to use ' . $value . ' .'
+                );
+            }
         }
     }
 
-    protected function isBundleExist($bundle, ContainerBuilder $container){
+    protected function isBundleExist($bundle, ContainerBuilder $container)
+    {
         $bundles = $container->getParameter('kernel.bundles');
         if (!isset($bundles[$bundle])) {
             return false;
@@ -45,9 +49,9 @@ abstract class AbstractCoreExtension extends Extension
 
 
     /**
-     * @param array            $config
+     * @param array $config
      * @param ContainerBuilder $container
-     * @param array            $namespaces
+     * @param array $namespaces
      */
     protected function remapParametersNamespaces(array $config, ContainerBuilder $container, array $namespaces)
     {
