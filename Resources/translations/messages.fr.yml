@@ -1,0 +1,47 @@
+miky_core:
+    no_results_to_display: Aucun résultat à afficher
+    create: Créer
+    display: Afficher
+    remove: Supprimer
+    submit: Envoyer
+    reset: Réinitialiser
+    delete: Supprimer
+    update: Modifier
+    number_of_results: Nombre de résultat
+    reference: Référence
+    info: Info
+    press_enter_to_search: Appuyez sur entrée pour rechercher
+    save_changes: Sauvegarder
+    actions: Actions
+    change: Modifier
+    search: Rechercher
+    last_update: Dernière mise à jour
+    creation_date: Date de création
+    name: Nom
+    cancel: Annuler
+    yes: Oui
+    no: Non
+    all: Tous
+    email: Email
+    enabled: Activé
+    edit: Editer
+    delete: Supprimer
+    content: Contenu
+    filter: Filtrer
+    clear_filters: Effacer les filtres
+    firstname: Prénom
+    lastname: Nom
+    phone: Téléphone
+    notes: Notes
+    title: Titre
+    description: Description
+    slug: Slug
+    icon: Icon
+    dateTo: Date de fin
+    dateFrom: Date de début
+    view_details: Voir les details
+    home: Accueil
+    views: Vues
+    duration: Durée
+    desc: Ordre décroissant
+    asc: Ordre croissant
