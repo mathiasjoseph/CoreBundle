@@ -50,6 +50,8 @@ class TimestampableSubscriber implements EventSubscriber
                 $builder->addField("createdAt", 'datetime', array("nullable" => true));
             if (!$metadata->hasField("updatedAt"))
                 $builder->addField("updatedAt", 'datetime', array("nullable" => true));
+            if (!$metadata->hasField("sortDate"))
+                $builder->addField("sortDate", 'datetime', array("nullable" => true));
         }else{
             $properties = explode(", ", $annotation->timeProperties);
             foreach ($properties as $property){

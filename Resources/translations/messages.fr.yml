@@ -1,6 +1,8 @@
 miky_core:
     no_results_to_display: Aucun résultat à afficher
     create: Créer
+    date_of_creation: Date de création
+    date_of_update: Date de mise à jours
     display: Afficher
     remove: Supprimer
     submit: Envoyer
