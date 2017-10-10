@@ -25,12 +25,15 @@ class FormTypeExtension extends AbstractTypeExtension
         $resolver->setDefaults(array("row_attr" => array()));
         $resolver->setAllowedTypes('casper_group', 'string')
             ->setAllowedTypes('casper_show', 'array')
+            ->setAllowedTypes('casper_show', \Closure::class)
             ->setAllowedTypes('casper_hide', 'array')
+            ->setAllowedTypes('casper_hide', \Closure::class)
             ->setAllowedTypes('casper_name', 'string');
     }
 
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
+
         $view->vars['row_attr'] = $options['row_attr'];
         if (isset($options['casper_group'])) {
             $view->vars['row_attr']['data-casper-group'] = $options['casper_group'];
@@ -39,13 +42,21 @@ class FormTypeExtension extends AbstractTypeExtension
             $view->vars['row_attr']['data-casper-group'] = $options['casper_group'];
         }
         if (isset($options['casper_hide'])) {
-            $view->vars['attr']['data-casper-hide'] = json_encode($options['casper_hide']);
+            if ($options['casper_hide'] instanceof \Closure){
+                $view->vars['attr']['data-casper-hide'] = json_encode($options['casper_hide']());
+            }else{
+                $view->vars['attr']['data-casper-hide'] = json_encode($options['casper_hide']);
+            }
         }
         if (isset($options['casper_name'])) {
             $view->vars['attr']['data-casper-name'] = $options['casper_name'];
         }
         if (isset($options['casper_show'])) {
-            $view->vars['attr']['data-casper-show'] = json_encode($options['casper_show']);
+            if ($options['casper_show'] instanceof \Closure){
+                $view->vars['attr']['data-casper-show'] = json_encode($options['casper_show']());
+            }else{
+                $view->vars['attr']['data-casper-show'] = json_encode($options['casper_show']);
+            }
         }
     }
 
