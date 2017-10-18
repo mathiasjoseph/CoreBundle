@@ -5,6 +5,7 @@ miky_core:
     date_of_update: Date de mise à jours
     display: Afficher
     remove: Supprimer
+    validate: Valider
     submit: Envoyer
     reset: Réinitialiser
     delete: Supprimer
